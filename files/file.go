@@ -175,7 +175,7 @@ func (i *FileInfo) detectType(modify, saveContent bool) error {
 	case strings.HasPrefix(mimetype, "image"):
 		i.Type = "image"
 		return nil
-	case isBinary(buffer[:n], n) || i.Size > 10*1024*1024: // 10 MB
+	case isBinary(buffer[:n], n) || i.Size > 30*1024*1024: // 30 MB - Joey
 		i.Type = "blob"
 		return nil
 	default:
